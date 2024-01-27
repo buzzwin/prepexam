@@ -140,12 +140,12 @@ const Sidebar = ({ apiLimitCount = 0, subscriptionType }: sidebarProps) => {
       {subscriptionType !== "PREMIUM" ? (
         <FreeCounter apiLimitCount={apiLimitCount} />
       ) : null}
-      <hr className="h-px bg-white/10 border-0 " />
-      <span className="flex px-3 py-1 items-center">
-        <span className="text-zinc-400 mr-2 text-sm">
+      <hr className="h-px border-0 bg-white/10 " />
+      <span className="flex items-center px-3 py-1">
+        <span className="mr-2 text-sm text-zinc-400">
           Powered by: IIElevenLabs
         </span>
-        <Heart className="h-4 w-4 text-red-700" />
+        <Heart className="w-4 h-4 text-red-700" />
       </span>
     </div>
   );
