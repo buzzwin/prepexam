@@ -39,32 +39,32 @@ const ProModal = () => {
     <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
       <DialogContent className="sm:max-w-lg md:min-w-max">
         <DialogHeader>
-          <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">
-            <div className="flex items-center gap-x-2 font-bold py-1">
+          <DialogTitle className="flex flex-col items-center justify-center pb-2 gap-y-4">
+            <div className="flex items-center py-1 font-bold gap-x-2">
               Upgrade to BerryLabs
-              <Badge className=" uppercase text-sm py-1" variant="premium">
+              <Badge className="py-1 text-sm uppercase " variant="premium">
                 Premium
               </Badge>
             </div>
           </DialogTitle>
-          <DialogDescription className=" text-center pt-2 space-y-2 text-zinc-900 font-medium">
+          <DialogDescription className="pt-2 space-y-2 font-medium text-center  text-zinc-900">
             {tools.map((tool) => (
               <Card
                 key={tool.href}
-                className="p-3 border-black/5 flex items-center justify-between"
+                className="flex items-center justify-between p-3 border-black/5"
               >
                 <div className="flex items-center gap-x-4">
                   <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
                     <tool.icon className={cn("w-6 h-6", tool.color)} />
                   </div>
-                  <div className="font-semibold text-sm">{tool.label}</div>
+                  <div className="text-sm font-semibold">{tool.label}</div>
                 </div>
-                <Check className="text-primary w-5 h-5" />
+                <Check className="w-5 h-5 text-primary" />
               </Card>
             ))}
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter className="md:justify-between items-center">
+        <DialogFooter className="items-center md:justify-between">
           <div
             className={cn(
               "w-full relative flex flex-col bg-slate-50 px-5 py-8 sm:rounded-2xl",
@@ -77,7 +77,7 @@ const ProModal = () => {
             <p className="flex items-center justify-center">
               <span className="text-[2rem] leading-none text-slate-900">
                 IDR
-                <span className="font-bold"> 499Rb</span>
+                <span className="font-bold"> $29.99</span>
               </span>
               <span className="ml-3 text-sm">
                 <span className="font-semibold text-slate-900">
@@ -103,7 +103,7 @@ const ProModal = () => {
           {proModal.payAsYouGoPriceVisible ? (
             <>
               <div className="font-bold">Or</div>
-              <div className="w-full md:w-fit relative flex flex-col bg-slate-50 px-5 py-8 sm:rounded-2xl">
+              <div className="relative flex flex-col w-full px-5 py-8 md:w-fit bg-slate-50 sm:rounded-2xl">
                 <p className="flex items-center justify-center">
                   <span className="text-[2rem] leading-none text-slate-900">
                     IDR

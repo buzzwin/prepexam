@@ -2,11 +2,11 @@ import Image from "next/image";
 
 const Loader = () => {
   return (
-    <div className="h-full flex flex-col gap-y-4 items-center justify-center">
-      <div className="w-10 h-10 relative animate-spin">
+    <div className="flex flex-col items-center justify-center h-full gap-y-4">
+      <div className="relative w-10 h-10 animate-spin">
         <Image alt="Logo" src="/genio.png" fill />
       </div>
-      <p className="text-sm text-muted-foreground">BerryLabs is thinking...</p>
+      <p className="text-sm text-muted-foreground">PrepExam is thinking...</p>
     </div>
   );
 };

@@ -61,12 +61,12 @@ const ModelModal = () => {
     <Dialog open={isModelModalOpen} onOpenChange={onModelModalClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="flex  flex-col gap-y-4 pb-2">
-            <div className="flex items-center gap-x-2 font-bold py-1">
+          <DialogTitle className="flex flex-col pb-2 gap-y-4">
+            <div className="flex items-center py-1 font-bold gap-x-2">
               Choose a Model to use
             </div>
           </DialogTitle>
-          <DialogDescription className="pt-2 space-y-2 text-zinc-900 font-medium max-h-96 overflow-auto">
+          {/* <DialogDescription className="pt-2 space-y-2 overflow-auto font-medium text-zinc-900 max-h-96">
             {models?.map((model: any) => (
               <Card
                 role="presentation"
@@ -79,13 +79,13 @@ const ModelModal = () => {
                     {model.name}
                   </h1>
                   <p className="max-w-md">{model.description}</p>
-                  <div className="flex items-center gap-x-2 font-bold py-1 text-gray-600">
+                  <div className="flex items-center py-1 font-bold text-gray-600 gap-x-2">
                     Tasks:
                     <Badge className="text-xs py-1 bg-[#DBEAFE] hover:bg-[#DBEAFE] text-[#6f7082]">
                       {task === "text" ? "Text to Speech" : "Speech to Speech"}
                     </Badge>
                   </div>
-                  <div className="flex items-center gap-x-2 font-bold py-1 text-gray-600 max-w-md overflow-auto flex-wrap gap-y-2">
+                  <div className="flex flex-wrap items-center max-w-md py-1 overflow-auto font-bold text-gray-600 gap-x-2 gap-y-2">
                     Languages:
                     {model.languages?.length > 0 &&
                       model.languages.map((language: { id: ""; name: "" }) => (
@@ -101,7 +101,7 @@ const ModelModal = () => {
                 </div>
               </Card>
             ))}
-          </DialogDescription>
+          </DialogDescription> */}
         </DialogHeader>
         <DialogFooter>
           {/* <Button variant="premium" size="lg" className="w-full">

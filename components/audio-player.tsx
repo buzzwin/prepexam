@@ -91,7 +91,7 @@ const AudioPlayer = ({
     } else {
       setIsDownloading(true);
       const url = stream || selectedVoice.preview_url;
-      downloadBlobFile(url, `berrylabs-${selectedVoice.name}`);
+      downloadBlobFile(url, `PrepExam-${selectedVoice.name}`);
       if (!isFreeTrialLimited && stream) {
         // @ts-ignore
         updateUserLimit();
@@ -103,7 +103,7 @@ const AudioPlayer = ({
   useEffect(() => {
     if (Object.keys(successResult).length > 0 && stream) {
       const url = stream;
-      downloadBlobFile(url, `berrylabs-${selectedVoice.name}`);
+      downloadBlobFile(url, `PrepExam-${selectedVoice.name}`);
     }
   }, [successResult]);
 

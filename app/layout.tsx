@@ -9,7 +9,7 @@ import Providers from "@/components/Providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "BerryLabs - Generative Voice AI & Document Interaction",
+  title: "PrepExam - Generative Voice AI & Document Interaction",
   description:
     "Revolutionizing document interaction, Summarize PDF, Chat With PDF. Convert text to speech online for free with AI voice generator. Create natural AI voices instantly in any language.",
 };
