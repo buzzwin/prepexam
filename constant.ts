@@ -3,6 +3,7 @@ import {
   AudioLines,
   FlaskConical,
   SquareStack,
+  VideoIcon
 } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 5;
@@ -47,13 +48,13 @@ export const tools = [
   //   bgColor: "bg-pink-700/10",
   //   href: "/image",
   // },
-  // {
-  //   label: "Video Generation",
-  //   icon: VideoIcon,
-  //   color: "text-orange-700",
-  //   bgColor: "bg-orange-700/10",
-  //   href: "/video",
-  // },
+  {
+    label: "Social Post Generation",
+    icon: VideoIcon,
+    color: "text-orange-700",
+    bgColor: "bg-orange-700/10",
+    href: "/instagram",
+  },
   // {
   //   label: "Code Generation",
   //   icon: Code,
