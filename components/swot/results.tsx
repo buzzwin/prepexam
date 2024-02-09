@@ -26,9 +26,9 @@ const Quiz: React.FC = () => {
     useState<boolean>(false);
 
   const [showExplanation, setShowExplanation] = useState<boolean>(false);
+  let timer: NodeJS.Timeout; // Declare outside the blocks
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
     if (hasTestStarted && timeRemaining > 0) {
       timer = setInterval(() => {
         setTimeElapsed((prev) => prev + 1);

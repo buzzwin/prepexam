@@ -1,7 +1,7 @@
 import { OpenAI } from "@langchain/openai";
 import { NextResponse } from "next/server";
 import { createObjectCsvWriter } from 'csv-writer';
-import { Request } from "@vercel/node";
+
 
 export async function POST(request: Request) {
   try {

@@ -159,11 +159,11 @@ const TextToSpeech = {
 
       if (generatedVoice) {
         const updatedVoice = await prismadb.generatedVoices.update({
-          where: { historyItemId: input.historyItemId },
+          where: { id: generatedVoice.id, historyItemId: input.historyItemId },
           data: {
             isPaid: input.isPaid,
           },
-        });
+        });        
         return { updatedVoice };
       } else {
         throw new TRPCError({ code: "NOT_FOUND" });
