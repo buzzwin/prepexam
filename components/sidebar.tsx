@@ -32,33 +32,33 @@ const poppins = Montserrat({
 });
 
 const routes = [
+  // {
+  //   label: "Dashboard",
+  //   icon: LayoutDashboard,
+  //   href: "/dashboard",
+  //   color: "text-sky-500",
+  // },
+  // {
+  //   label: "Document Interaction",
+  //   icon: FileArchiveIcon,
+  //   href: "/summarizer",
+  //   color: "text-pink-300",
+  // },
+  // {
+  //   label: "Speech Synthesis",
+  //   icon: AudioLines,
+  //   href: "/speech-synthesis",
+  //   color: "text-violet-500",
+  //   bgColor: "bg-violet-500/10",
+  // },
+  // {
+  //   label: "SAT Math",
+  //   icon: FlaskConical,
+  //   href: "/labs",
+  //   color: "text-pink-700",
+  // },
   {
-    label: "Dashboard",
-    icon: LayoutDashboard,
-    href: "/dashboard",
-    color: "text-sky-500",
-  },
-  {
-    label: "Document Interaction",
-    icon: FileArchiveIcon,
-    href: "/summarizer",
-    color: "text-pink-300",
-  },
-  {
-    label: "Speech Synthesis",
-    icon: AudioLines,
-    href: "/speech-synthesis",
-    color: "text-violet-500",
-    bgColor: "bg-violet-500/10",
-  },
-  {
-    label: "SAT Math",
-    icon: FlaskConical,
-    href: "/labs",
-    color: "text-pink-700",
-  },
-  {
-    label: "Instagram",
+    label: "Social Posts",
     icon: Music,
     href: "/instagram",
     color: "text-pink-700",

@@ -13,13 +13,13 @@ const testimonials = [
     name: "Rachel",
     avatar: "R",
     title: "Youtuber",
-    description: "I use this voice generator for my daily content!",
+    description: "I use this  generator for my daily content!",
   },
   {
     name: "Mark",
     avatar: "M",
     title: "Social Media Specialist",
-    description: "This app has changed my life, we can use our own voice!",
+    description: "This app has changed my life!",
   },
   {
     name: "David",
@@ -33,10 +33,10 @@ const testimonials = [
 export const LandingContent = () => {
   return (
     <div className="px-10 pb-20">
-      <h2 className="text-center text-4xl text-white font-extrabold mb-10">
+      <h2 className="mb-10 text-4xl font-extrabold text-center text-white">
         Testimonials
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {testimonials.map((item) => (
           <Card
             key={item.description}
@@ -46,10 +46,10 @@ export const LandingContent = () => {
               <CardTitle className="flex items-center gap-x-2">
                 <div>
                   <p className="text-lg">{item.name}</p>
-                  <p className="text-zinc-400 text-sm">{item.title}</p>
+                  <p className="text-sm text-zinc-400">{item.title}</p>
                 </div>
               </CardTitle>
-              <CardContent className="pt-4 px-0">
+              <CardContent className="px-0 pt-4">
                 {item.description}
               </CardContent>
             </CardHeader>
