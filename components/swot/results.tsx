@@ -72,18 +72,32 @@ const Quiz: React.FC = () => {
   };
 
   const checkAnswer = () => {
-    if (selectedChoice) {
-      const correctChoiceKey = apiResponse?.answer;
+    if (selectedChoice && apiResponse) {
+      // Extract choices from apiResponse
+      const choices = {
+        choice_1: apiResponse.choice_1,
+        choice_2: apiResponse.choice_2,
+        choice_3: apiResponse.choice_3,
+        choice_4: apiResponse.choice_4,
+      };
 
-      console.log(selectedChoice);
-      console.log(correctChoiceKey);
-      const correct = selectedChoice === correctChoiceKey;
-      setIsChoiceCorrect(correct);
+      // Iterate through choices to find the correct one
+      let correctChoiceKey = null;
+      Object.entries(choices).forEach(([key, value]) => {
+        if (value === apiResponse.answer) {
+          correctChoiceKey = key;
+        }
+      });
+
+      // Check if the selected choice matches the correct choice
+      const isCorrect = selectedChoice === correctChoiceKey;
+      setIsChoiceCorrect(isCorrect);
 
       // Update score if the answer is correct
-      if (correct) {
-        setScore(score + 1);
+      if (isCorrect) {
+        setScore((prevScore) => prevScore + 1);
       }
+
       setShowExplanation(true); // Show explanation after checking the answer
     }
   };

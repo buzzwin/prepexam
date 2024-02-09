@@ -58,6 +58,12 @@ const routes = [
     color: "text-pink-700",
   },
   {
+    label: "Instagram",
+    icon: Music,
+    href: "/instagram",
+    color: "text-pink-700",
+  },
+  {
     label: "History",
     icon: SquareStack,
     href: "/history",

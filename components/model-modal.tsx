@@ -13,49 +13,49 @@ import { useModel } from "@/hooks/use-model-modal";
 
 import { Card } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
-import { getModels } from "@/lib/axios";
+//import { getModels } from "@/lib/axios";
 import { useEffect, useState } from "react";
 
 const ModelModal = () => {
   const { isModelModalOpen, onModelModalClose, setModel, task, model } =
     useModel();
-  const { data, isLoading } = useQuery({
-    queryKey: ["models"],
-    queryFn: getModels,
-    refetchOnWindowFocus: false,
-  });
-  const models =
-    task === "text"
-      ? data?.data
-      : data?.data.filter(
-          (model: any) => model.model_id === "eleven_english_sts_v2"
-        );
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ["models"],
+  //   queryFn: getModels,
+  //   refetchOnWindowFocus: false,
+  // });
+  // const models =
+  //   task === "text"
+  //     ? data?.data
+  //     : data?.data.filter(
+  //         (model: any) => model.model_id === "eleven_english_sts_v2"
+  //       );
 
   const handleSelectModel = (model: {}) => {
     onModelModalClose();
     setModel(model);
   };
 
-  useEffect(() => {
-    // reset default value for speech to text
-    if (task === "speech") {
-      // const model = {
-      //   name: "Select Model",
-      // };
-      setModel(models[0]);
-    }
-  }, [task]);
+  // useEffect(() => {
+  //   // reset default value for speech to text
+  //   if (task === "speech") {
+  //     // const model = {
+  //     //   name: "Select Model",
+  //     // };
+  //     setModel(models[0]);
+  //   }
+  // }, [task]);
 
-  useEffect(() => {
-    if (task === "text") {
-      // @ts-ignore
-      if (model && model.name !== "Select Model") {
-        setModel(model);
-      } else {
-        setModel(models && models[0]);
-      }
-    }
-  }, [models]);
+  // useEffect(() => {
+  //   if (task === "text") {
+  //     // @ts-ignore
+  //     if (model && model.name !== "Select Model") {
+  //       setModel(model);
+  //     } else {
+  //       setModel(models && models[0]);
+  //     }
+  //   }
+  // }, [models]);
 
   return (
     <Dialog open={isModelModalOpen} onOpenChange={onModelModalClose}>
