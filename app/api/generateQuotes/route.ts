@@ -30,19 +30,19 @@ export async function POST(request: Request) {
       }
     }
 
-    // Create a CSV file and write quotes to it
-    const csvWriter = createObjectCsvWriter({
-      path: 'quotes.csv',
-      header: [
-        { id: 'quote', title: 'Quote' },
-        { id: 'author', title: 'Author' },
-      ],
-    });
+    // // Create a CSV file and write quotes to it
+    // const csvWriter = createObjectCsvWriter({
+    //   path: 'quotes.csv',
+    //   header: [
+    //     { id: 'quote', title: 'Quote' },
+    //     { id: 'author', title: 'Author' },
+    //   ],
+    // });
 
-    await csvWriter.writeRecords(quotes);
-    console.log('CSV file created successfully');
+    // await csvWriter.writeRecords(quotes);
+    // console.log('CSV file created successfully');
 
-    console.log({ quotes });
+    // console.log({ quotes });
 
     return NextResponse.json({ message: quotes });
   } catch (error) {
