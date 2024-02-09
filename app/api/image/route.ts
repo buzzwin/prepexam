@@ -5,7 +5,7 @@ import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
 import { openai } from "@/lib/openai";
 
 export const preferredRegion = "sin1";
-export const maxDuration = 50;
+export const maxDuration = 10;
 
 export async function POST(req: Request) {
   try {

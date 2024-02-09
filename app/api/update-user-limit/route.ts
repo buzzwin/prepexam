@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { increaseApiLimit } from "@/lib/api-limit";
 
 export const preferredRegion = "sin1";
-export const maxDuration = 50;
+export const maxDuration = 10;
 
 export async function POST(req: Request) {
   try {
