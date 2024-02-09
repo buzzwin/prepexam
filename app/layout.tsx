@@ -8,10 +8,16 @@ import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// export const metadata: Metadata = {
+//   title: "AISocial - Social Generative AI",
+//   description:
+//     "Revolutionizing document interaction, Summarize PDF, Chat With PDF. Convert text to speech online for free with AI voice generator. Create natural AI voices instantly in any language.",
+// };
+
 export const metadata: Metadata = {
-  title: "PrepExam - Generative Voice AI & Document Interaction",
+  title: "AISocial - Social Generative AI",
   description:
-    "Revolutionizing document interaction, Summarize PDF, Chat With PDF. Convert text to speech online for free with AI voice generator. Create natural AI voices instantly in any language.",
+    "Revolutionizing social post creation for Instagram , TikTok , Youtube, Facebook, Linkedin and more.",
 };
 
 export default function RootLayout({

@@ -120,7 +120,7 @@ const Sidebar = ({ apiLimitCount = 0, subscriptionType }: sidebarProps) => {
             <Image fill alt="Logo" src="/BerryLabs.png" />
           </div>
           <h1 className={cn("text-2xl font-bold", poppins.className)}>
-            PrepExam
+            AISocial
           </h1>
         </Link>
         <div className="space-y-1">
