@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from "react";
+import React, { useState, MouseEvent, ChangeEvent } from "react";
 import { Button } from "../ui/button";
 
 interface IApiResponse {
@@ -10,6 +10,7 @@ const Instagram: React.FC = () => {
   const [apiResponse, setApiResponse] = useState<IApiResponse[]>([]);
   const [loading, setLoading] = useState(false);
   const [showDirections, setShowDirections] = useState(false);
+  const [customPrompt, setCustomPrompt] = useState("");
 
   const handleClick = async (
     event: MouseEvent<HTMLButtonElement>
@@ -32,30 +33,47 @@ const Instagram: React.FC = () => {
     }
   };
 
-  // ... Previous code for downloadCSV and generateCSV
+  // Function to handle changes in the custom prompt text box
+  const handlePromptChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setCustomPrompt(event.target.value);
+  };
+
   // Function to trigger CSV download
   const downloadCSV = () => {
+    // Generate CSV content from the API response
+    const csvContent = generateCSV(apiResponse);
+
     // Create a Blob object containing the CSV content
-    const csvContent =
-      "data:text/csv;charset=utf-8," +
-      encodeURIComponent(generateCSV(apiResponse));
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8" });
+
+    // Create an object URL for the Blob
+    const url = URL.createObjectURL(blob);
 
     // Create an invisible anchor element and set its attributes
     const link = document.createElement("a");
-    link.setAttribute("href", csvContent);
+    link.setAttribute("href", url);
     link.setAttribute("download", "quotes.csv");
 
     // Simulate a click event to trigger the download
     link.style.display = "none";
     document.body.appendChild(link);
     link.click();
+
+    // Cleanup: revoke the object URL
+    URL.revokeObjectURL(url);
     document.body.removeChild(link);
   };
 
   // Function to generate CSV content from the API response
   const generateCSV = (data: IApiResponse[]) => {
-    const header = "Author,Quote\n"; // CSV header
-    const csvRows = data.map((quote) => `${quote.author},${quote.quote}\n`);
+    const header = `Prompt: ${customPrompt}\nAuthor,Quote\n`; // CSV header
+    const csvRows = data.map((quote) => {
+      // Check if the quote contains a comma
+      const quoteText = quote.quote.includes(",")
+        ? `"${quote.quote}"`
+        : quote.quote;
+      return `${quote.author},${quoteText}\n`;
+    });
     return header + csvRows.join("");
   };
 
@@ -76,6 +94,24 @@ const Instagram: React.FC = () => {
       {apiResponse.length > 0 && (
         <div>
           <h1 className="mb-4 text-2xl font-bold text-center">Quotes</h1>
+
+          {/* Add a text box for custom prompt */}
+          <div className="mb-4">
+            <label
+              htmlFor="custom-prompt"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Custom Prompt
+            </label>
+            <input
+              type="text"
+              id="custom-prompt"
+              name="custom-prompt"
+              value={customPrompt}
+              onChange={handlePromptChange}
+              className="block w-full p-2 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+            />
+          </div>
 
           <table className="w-full">
             <thead>
