@@ -17,7 +17,8 @@ const DashboardPage = () => {
           Explore the power of AI
         </h2>
         <p className="text-sm text-center text-muted-foreground md:text-lg">
-          Chat with the smartest AI - Experience the power of AI
+          Create Bulk Upload files for creating social posts - Experience the
+          power of AI
         </p>
       </div>
       <div className="px-4 space-y-4 md:px-20 lg:px-32">
