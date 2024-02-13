@@ -59,7 +59,7 @@ function Contact() {
   const { isSignedIn } = useUser();
 
   return (
-    <section className="py-10 sm:pt-16 md:pt-16 text-white" id="contact">
+    <section className="py-10 text-white sm:pt-16 md:pt-16" id="contact">
       <Toaster position="top-right" reverseOrder={false} />
       <h5
         className={cn("text-center text-4xl font-extrabold mb-10", {
@@ -72,11 +72,11 @@ function Contact() {
       <div className="container w-[90%] md:w-[78%] grid grid-cols-1 md:grid-cols-[30%,50%] gap-8 md:gap-[12%] m-auto">
         <div className="flex flex-col gap-[1.2rem]">
           <article className="bg-[#192339] p-[1.2rem] rounded-[1.2rem] text-center border-[1px] border-solid border-transparent transition delay-150 duration-300 ease-in-out hover:border-[#192339]">
-            <Mail className="inline-block text-2xl mb-2" />
+            <Mail className="inline-block mb-2 text-2xl" />
             <h4>Email</h4>
-            <h5>contact@berrytrada.com</h5>
+            <h5>contact@aisocial.com</h5>
             <a
-              href="mailto:contact@berrytrada.com"
+              href="mailto:contact@aisocial.com"
               target="_blank"
               className="text-[#4db5ff] transition delay-150 duration-300 ease-in-out hover:text-white mt-3 inline-block text-xs"
             >
@@ -84,7 +84,7 @@ function Contact() {
             </a>
           </article>
           {/* <article className="bg-[#192339] p-[1.2rem] rounded-[1.2rem] text-center border-[1px] border-solid border-transparent transition delay-150 duration-300 ease-in-out hover:border-[#4db5ff66]">
-            <RiMessengerLine className="inline-block text-2xl mb-2" />
+            <RiMessengerLine className="inline-block mb-2 text-2xl" />
             <h4>Messenger</h4>
             <h5>kautzaralibani</h5>
             <a
@@ -96,9 +96,9 @@ function Contact() {
             </a>
           </article> */}
           <article className="bg-[#192339] p-[1.2rem] rounded-[1.2rem] text-center border-[1px] border-solid border-transparent transition delay-150 duration-300 ease-in-out hover:border-[#192339]">
-            <MessagesSquare className="inline-block text-2xl mb-2" />
+            <MessagesSquare className="inline-block mb-2 text-2xl" />
             <h4>Whatsapp</h4>
-            <h5>+6282126753060</h5>
+            {/* <h5>+6282126753060</h5> */}
             <a
               href={
                 isMobile

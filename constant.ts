@@ -3,7 +3,8 @@ import {
   AudioLines,
   FlaskConical,
   SquareStack,
-  VideoIcon
+  VideoIcon,
+  ImageIcon
 } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 5;
@@ -41,13 +42,13 @@ export const tools = [
   //   color: "text-emerald-500",
   //   bgColor: "bg-emerald-500/10",
   // },
-  // {
-  //   label: "Image Generation",
-  //   icon: ImageIcon,
-  //   color: "text-pink-700",
-  //   bgColor: "bg-pink-700/10",
-  //   href: "/image",
-  // },
+  {
+    label: "Image Generation",
+    icon: ImageIcon,
+    color: "text-pink-700",
+    bgColor: "bg-pink-700/10",
+    href: "/image",
+  },
   {
     label: "Social Post Generation",
     icon: VideoIcon,
@@ -71,7 +72,7 @@ export const PLANS = [
     quota: 10,
     pagesPerPdf: 5,
     price: {
-      amount: 19000,
+      amount: 10,
       priceIds: {
         test: "",
         production: "",
@@ -84,7 +85,7 @@ export const PLANS = [
     quota: 30,
     pagesPerPdf: 25,
     price: {
-      amount: 499,
+      amount: 20,
       priceIds: {
         test: "price_1OLQyVC0XsP9dATYpzHIpjAe",
         production: "",

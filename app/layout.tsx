@@ -30,10 +30,10 @@ export default function RootLayout({
       <Providers>
         <html lang="en">
           <head>
-            <link rel="icon" href="/BerryLabs.png" type="image/png" />
+            <link rel="icon" href="/socialAI.png" type="image/png" />
             <link
               rel="apple-touch-icon"
-              href="/BerryLabs.png"
+              href="/socialAI.png"
               type="image/png"
             />
           </head>

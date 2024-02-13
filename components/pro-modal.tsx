@@ -76,7 +76,7 @@ const ProModal = () => {
           >
             <p className="flex items-center justify-center">
               <span className="text-[2rem] leading-none text-slate-900">
-                IDR
+                USD
                 <span className="font-bold"> $29.99</span>
               </span>
               <span className="ml-3 text-sm">
@@ -106,7 +106,7 @@ const ProModal = () => {
               <div className="relative flex flex-col w-full px-5 py-8 md:w-fit bg-slate-50 sm:rounded-2xl">
                 <p className="flex items-center justify-center">
                   <span className="text-[2rem] leading-none text-slate-900">
-                    IDR
+                    USD
                     <span className="font-bold">
                       {" "}
                       {payAsYouGoPrice.toLocaleString()}

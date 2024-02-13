@@ -17,6 +17,8 @@ import { Button } from "@/components/ui/button";
 import { amountOptions, formSchema, resolutionOptions } from "./constant";
 import EmptyPage from "@/components/empty";
 import Loader from "@/components/loader";
+import ImageEditor from "@/components/image-editor";
+
 import {
   Select,
   SelectContent,
@@ -30,6 +32,10 @@ import { useProModal } from "@/hooks/use-pro-modal";
 const ImagePage = () => {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
+  const [currentEditImageUrl, setCurrentEditImageUrl] = useState<string | null>(
+    null
+  );
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,6 +51,7 @@ const ImagePage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+      setCurrentEditImageUrl(null);
       setImages([]);
       const response = await axios.post("/api/image", values);
       const urls = response.data.map((image: { url: string }) => image.url);
@@ -76,13 +83,13 @@ const ImagePage = () => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="rounded-lg w-full border p-4 px-3 md:px-4 focus-within:shadow-sm grid grid-cols-12 gap-2"
+              className="grid w-full grid-cols-12 gap-2 p-4 px-3 border rounded-lg md:px-4 focus-within:shadow-sm"
             >
               <FormField
                 name="prompt"
                 render={({ field }) => (
                   <FormItem className="col-span-12 lg:col-span-6">
-                    <FormControl className="m-0 p-0">
+                    <FormControl className="p-0 m-0">
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
@@ -148,7 +155,7 @@ const ImagePage = () => {
                 )}
               />
               <Button
-                className="col-span-12 lg:col-span-2 w-full"
+                className="w-full col-span-12 lg:col-span-2"
                 disabled={isLoading}
               >
                 Generate
@@ -156,34 +163,52 @@ const ImagePage = () => {
             </form>
           </Form>
         </div>
-        <div className="space-y-4 mt-4">
+        <div className="mt-4 space-y-4">
           {isLoading && (
-            <div className="p-20 rounded-lg w-full flex justify-center items-start bg-muted">
+            <div className="flex items-start justify-center w-full p-20 rounded-lg bg-muted">
               <Loader />
             </div>
           )}
           {images.length === 0 && !isLoading && (
             <EmptyPage label="No images generated." />
           )}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-            {images.map((src) => (
-              <Card key={src} className="rounded-lg overflow-hidden">
+
+          <div className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {images.map((src, index) => (
+              <Card key={src} className="overflow-hidden rounded-lg">
                 <div className="relative aspect-square">
-                  <Image src={src} alt="Image" fill />
+                  <Image
+                    src={src}
+                    alt={`Image ${index}`}
+                    layout="responsive"
+                    width={1024} // Adjust based on your needs
+                    height={1024} // Adjust based on your needs
+                    className="w-full h-auto md:w-auto md:h-auto" // Adjust these classes as needed
+                  />
                 </div>
-                <CardFooter className="p-2">
+                <CardFooter className="flex items-center justify-between p-2">
                   <Button
                     onClick={() => window.open(src)}
                     variant="secondary"
+                    className="w-full mr-2"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Download
+                  </Button>
+                  <Button
+                    onClick={() => setCurrentEditImageUrl(src)} // Set the URL for editing
+                    variant="secondary"
                     className="w-full"
                   >
-                    <Download className="h-4 w-4 mr-2" />
-                    Download
+                    Edit
                   </Button>
                 </CardFooter>
               </Card>
             ))}
           </div>
+          {currentEditImageUrl && !isLoading && (
+            <ImageEditor initialImageUrl={currentEditImageUrl} />
+          )}
         </div>
       </div>
     </div>

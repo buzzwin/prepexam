@@ -63,11 +63,17 @@ const routes = [
     href: "/instagram",
     color: "text-pink-700",
   },
+  // {
+  //   label: "History",
+  //   icon: SquareStack,
+  //   href: "/history",
+  //   color: "text-orange-700",
+  // },
   {
-    label: "History",
-    icon: SquareStack,
-    href: "/history",
-    color: "text-orange-700",
+    label: "Image Generation",
+    icon: ImageIcon,
+    href: "/image",
+    color: "text-emerald-500",
   },
   // {
   //   label: "Music Generation",

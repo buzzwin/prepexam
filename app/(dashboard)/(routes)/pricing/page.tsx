@@ -21,7 +21,7 @@ const Page = () => {
     {
       plan: "Pay as You Go",
       tagline: "Small or Large projects, use as you wish.",
-      quota: 10,
+      quota: 100,
       quotaCharacter: "Flexible",
       features: [
         {
@@ -76,7 +76,7 @@ const Page = () => {
           text: "Create up to 160 custom voices",
         },
         {
-          text: "Additional usage-based characters at IDR5000 per 1000 characters",
+          text: "Additional usage-based characters at 5 cents per 1000 characters",
         },
         {
           text: "Mobile-friendly interface",
@@ -93,7 +93,7 @@ const Page = () => {
 
   return (
     <>
-      <MaxWidthWrapper className="mb-8 text-center max-w-5xl">
+      <MaxWidthWrapper className="max-w-5xl mb-8 text-center">
         <div className="mx-auto sm:max-w-lg">
           <h1 className="text-6xl font-bold sm:text-7xl">Pricing</h1>
           <p className="mt-5 text-gray-600 sm:text-lg">
@@ -102,7 +102,7 @@ const Page = () => {
           </p>
         </div>
 
-        <div className="pt-12 grid grid-cols-1 gap-10 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-10 pt-12 lg:grid-cols-2">
           <TooltipProvider>
             {pricingItems.map(
               ({ plan, tagline, quota, quotaCharacter, features }) => {
@@ -120,32 +120,31 @@ const Page = () => {
                     })}
                   >
                     {plan === "Premium" && (
-                      <div className="absolute -top-5 left-0 right-0 mx-auto w-32 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 px-3 py-2 text-sm font-medium text-white">
+                      <div className="absolute left-0 right-0 w-32 px-3 py-2 mx-auto text-sm font-medium text-white rounded-full -top-5 bg-gradient-to-r from-blue-600 to-cyan-600">
                         Upgrade now
                       </div>
                     )}
 
                     <div className="p-5">
-                      <h3 className="my-3 text-center font-display text-3xl font-bold">
+                      <h3 className="my-3 text-3xl font-bold text-center font-display">
                         {plan}
                       </h3>
                       <p className="text-gray-500">{tagline}</p>
                       {plan !== "Premium" ? (
-                        <p className="float-right relative sm:right-2 md:right-32 lg:right-6 top-3">
+                        <p className="relative float-right sm:right-2 md:right-32 lg:right-6 top-3">
                           <Tooltip delayDuration={300}>
                             <TooltipTrigger className="cursor-default ml-1.5 flex">
-                              <Asterisk className="h-4 w-4 text-zinc-500" />
-                              <Asterisk className="h-4 w-4 text-zinc-500" />
+                              <Asterisk className="w-4 h-4 text-zinc-500" />
+                              <Asterisk className="w-4 h-4 text-zinc-500" />
                             </TooltipTrigger>
-                            <TooltipContent className="w-80 p-2">
+                            <TooltipContent className="p-2 w-80">
                               {"Starting from"}
                             </TooltipContent>
                           </Tooltip>
                         </p>
                       ) : null}
-                      <p className="my-5 font-display text-6xl font-semibold">
-                        IDR {price.toLocaleString()}
-                        {plan === "Premium" ? "Rb" : ""}
+                      <p className="my-5 text-6xl font-semibold font-display">
+                        {plan === "Premium" ? "$" : ""} {price.toLocaleString()}
                       </p>
                       <p className="text-gray-500">
                         {" "}
@@ -155,16 +154,16 @@ const Page = () => {
                       </p>
                     </div>
 
-                    <div className="flex h-20 items-center justify-center border-b border-t border-gray-200 bg-gray-50">
+                    <div className="flex items-center justify-center h-20 border-t border-b border-gray-200 bg-gray-50">
                       <div className="flex items-center space-x-1">
                         <div>
                           <p className="flex">
                             {quota.toLocaleString()} Files/mo included
                             <Tooltip delayDuration={300}>
                               <TooltipTrigger className="cursor-default ml-1.5 flex">
-                                <HelpCircle className="h-4 w-4 text-zinc-500" />
+                                <HelpCircle className="w-4 h-4 text-zinc-500" />
                               </TooltipTrigger>
-                              <TooltipContent className="w-80 p-2">
+                              <TooltipContent className="p-2 w-80">
                                 Document Interaction Feature Access
                               </TooltipContent>
                             </Tooltip>
@@ -174,9 +173,9 @@ const Page = () => {
                             characters/month
                             <Tooltip delayDuration={300}>
                               <TooltipTrigger className="cursor-default ml-1.5 flex">
-                                <HelpCircle className="h-4 w-4 text-zinc-500" />
+                                <HelpCircle className="w-4 h-4 text-zinc-500" />
                               </TooltipTrigger>
-                              <TooltipContent className="w-80 p-2">
+                              <TooltipContent className="p-2 w-80">
                                 Generate Voice Feature Access
                               </TooltipContent>
                             </Tooltip>
@@ -185,14 +184,14 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <ul className="my-10 space-y-5 px-8">
+                    <ul className="px-8 my-10 space-y-5">
                       {features.map(({ text, footnote, negative }, index) => (
                         <li key={index} className="flex space-x-5">
                           <div className="flex-shrink-0">
                             {negative ? (
-                              <Minus className="h-6 w-6 text-gray-300" />
+                              <Minus className="w-6 h-6 text-gray-300" />
                             ) : (
-                              <Check className="h-6 w-6 text-blue-500" />
+                              <Check className="w-6 h-6 text-blue-500" />
                             )}
                           </div>
                           {footnote ? (
@@ -206,9 +205,9 @@ const Page = () => {
                               </p>
                               <Tooltip delayDuration={300}>
                                 <TooltipTrigger className="cursor-default ml-1.5">
-                                  <HelpCircle className="h-4 w-4 text-zinc-500" />
+                                  <HelpCircle className="w-4 h-4 text-zinc-500" />
                                 </TooltipTrigger>
-                                <TooltipContent className="w-80 p-2">
+                                <TooltipContent className="p-2 w-80">
                                   {footnote}
                                 </TooltipContent>
                               </Tooltip>
